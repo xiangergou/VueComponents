@@ -1,5 +1,5 @@
 <template>
-<div id="app">
+<div id="app" class="app_container">
   <ul class="nav">
     <li>
       <router-link to="/" exact>Home</router-link>
@@ -44,11 +44,8 @@ export default {
 }
 </script>
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-}
+<style lang="scss">
+@import './style/reset.scss';
 html, body {
   margin: 0;
   padding: 0;
@@ -64,77 +61,57 @@ html, body {
   display: flex;
   width: 100%;
   min-height: 100%;
+  h1, h2 {
+    font-weight: normal;
+  }
+  ul, ol {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+  }
+  .nav {
+    border-right: 1px solid gray;
+    padding: 50px 0 0 40px;
+    width: 120px;
+    flex-shrink: 0;
+  }
+  .nav li {
+    margin: 20px 0;
+  }
+  .content {
+    padding: 30px 20px;
+    flex-grow: 1;
+    box-sizing: border-box;
+  }
+  .inner-content {
+    margin-top: 30px;
+  }
+  a {
+    color: gray
+  }
+  .router-link-active {
+    color: #42b983;
+  }
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: darkkhaki;
+  }
+  p {
+    margin: 10px 0;
+  }
+  .title {
+    display: inline-block;
+    width: 150px;
+    margin-right: 15px;
+    color: crimson;
+  }
+  .icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+  }
 }
-h1, h2 {
-  font-weight: normal;
-}
-ul, ol {
-  list-style-type: none;
-  padding: 0;
-  text-align: left;
-}
-.nav {
-  border-right: 1px solid gray;
-  padding: 50px 0 0 40px;
-  width: 120px;
-  flex-shrink: 0;
-}
-.nav li {
-  margin: 20px 0;
-}
-.content {
-  padding: 30px 20px;
-  flex-grow: 1;
-  box-sizing: border-box;
-}
-.inner-content {
-  margin-top: 30px;
-}
-a {
-  color: gray
-}
-.router-link-active {
-  color: #42b983;
-}
-button {
-  background: floralwhite;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  outline: none;
-  border: 1px solid olive;
-  padding: 5px;
-  margin: 10px 0;
-  border-radius: 4px;
-}
-h1 {
-  font-size: 36px;
-  font-weight: bold;
-  color: darkkhaki;
-}
-p {
-  margin: 10px 0;
-}
-.title {
-  display: inline-block;
-  width: 150px;
-  margin-right: 15px;
-  color: crimson;
-}
-.item {
-  width: 400px;
-  margin: 10px auto;
-  padding-left: 20px;
-  text-align: left;
-}
-.item-explain {
-  color: gray;
-  font-style: italic;
-}
-.icon {
-  width: 1em; height: 1em;
-  vertical-align: -0.15em;
-  fill: currentColor;
-  overflow: hidden;
-}
+
 </style>
