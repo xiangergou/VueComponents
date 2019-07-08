@@ -2,12 +2,13 @@
  * @Author: liuxia
  * @Date: 2019-07-05 20:31:14
  * @Last Modified by: liuxia
- * @Last Modified time: 2019-07-05 21:10:16
+ * @Last Modified time: 2019-07-08 14:35:20
  */
 
 <template>
    <el-form class="quarter__container">
-    <!-- 遮罩层 -->
+     <h2> 基于element 季度组件</h2>
+    <!-- 遮罩层   后续研究eleemnt实现方法 监听全局点击事件-->
     <mark
       v-show="showSeason"
       @click.stop="showSeason=false"
@@ -159,14 +160,14 @@ export default {
       that.showSeason = false
       this.showValue = `${this.year}年${this.season}季度`
 
-      const time = {
+      console.log({
+        startTime: this.getStamp(i).startTime,
+        endTime: this.getStamp(i).endTime
+      })
+      return {
         startTime: this.getStamp(i).startTime,
         endTime: this.getStamp(i).endTime
       }
-      const obj = {
-        data: time
-      }
-      this.$emit('popoverData', obj)
     }
   }
 }

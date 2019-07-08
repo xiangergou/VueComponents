@@ -2,12 +2,13 @@
  * @Author: liuxia
  * @Date: 2019-07-05 17:52:26
  * @Last Modified by: liuxia
- * @Last Modified time: 2019-07-05 17:52:58
+ * @Last Modified time: 2019-07-08 14:55:45
  */
 
 import Vue from 'vue'
 import Router from 'vue-router'
 import {capitalizeFirstLetter} from '@/utils'
+import hello from '@/views/hello/index.vue'
 
 Vue.use(Router)
 
@@ -54,7 +55,11 @@ const routes = requireComponent.keys().map((filePath) => {
   }
 })
 
-routes.unshift()
+routes.unshift({
+  path: '/',
+  name: 'hello',
+  component: hello
+})
 export default new Router({
   routes
 })

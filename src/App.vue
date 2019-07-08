@@ -1,17 +1,24 @@
+/*
+ * @Author: liuxia
+ * @Date: 2019-07-08 14:56:07
+ * @Last Modified by: liuxia
+ * @Last Modified time: 2019-07-08 14:57:22
+ */
+
 <template>
-<div id="app" class="app_container">
-  <ul class="nav">
-    <li>
-      <router-link to="/" exact>Home</router-link>
-    </li>
-    <li v-for="demo of demos" :key="demo">
-      <router-link :to="`Demo${demo}`">Demo-{{needZero(demo)}}{{demo}}</router-link>
-    </li>
-  </ul>
-  <div class="content">
-    <router-view :identity="identity"/>
+  <div id="app" class="app_container">
+    <ul class="nav">
+      <li>
+        <router-link to="/" exact>Home</router-link>
+      </li>
+      <li v-for="demo of demos" :key="demo">
+        <router-link :to="`Demo${demo}`">Demo-{{needZero(demo)}}{{demo}}</router-link>
+      </li>
+    </ul>
+    <div class="content">
+      <router-view :identity="identity"/>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -30,13 +37,13 @@ export default {
     }
   },
   methods: {
-    getDemoArray () {
-      let arr = []
-      for (let i = 0; i < DEMO_NUMBER; i++) {
-        arr.push(i + 1)
-      }
-      return arr
-    },
+    // getDemoArray () {
+    //   let arr = []
+    //   for (let i = 0; i < DEMO_NUMBER; i++) {
+    //     arr.push(i + 1)
+    //   }
+    //   return arr
+    // },
     needZero (number) {
       return number < 10 ? '0' : null
     }
@@ -46,6 +53,9 @@ export default {
 
 <style lang="scss">
 @import './style/reset.scss';
+h2{
+  margin: 10px 0;
+}
 html, body {
   margin: 0;
   padding: 0;
