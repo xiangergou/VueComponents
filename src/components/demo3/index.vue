@@ -33,7 +33,7 @@ import {
 } from './children'
 
 export default {
-  name: 'demo3',
+  name: 'demo3-基于vuedraggable的div拖拽',
   components: {
     draggable,
     test1,

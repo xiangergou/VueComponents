@@ -2,7 +2,7 @@
  * @Author: liuxia
  * @Date: 2019-07-08 14:56:07
  * @Last Modified by: liuxia
- * @Last Modified time: 2019-07-08 14:57:22
+ * @Last Modified time: 2019-07-10 16:21:42
  */
 
 <template>
@@ -12,7 +12,7 @@
         <router-link to="/" exact>Home</router-link>
       </li>
       <li v-for="demo of demos" :key="demo">
-        <router-link :to="`Demo${demo}`">Demo-{{needZero(demo)}}{{demo}}</router-link>
+        <router-link :to="`${demo}`">{{needZero(demo)}}{{demo}}</router-link>
       </li>
     </ul>
     <div class="content">
@@ -23,13 +23,21 @@
 
 <script>
 const requireComponent = require.context('./components', true, /\.vue$/)
-const DEMO_NUMBER = requireComponent.keys().length
+const arr = requireComponent.keys().filter((e) => {
+  const rex = /\.vue$/
+  return rex.test(e.split('/')[2])
+})
+const DEMO_MAP = arr.map((filePath) => {
+  const componentConfig = requireComponent(filePath)
+  const name = componentConfig.default.name
+  return name
+})
 
 export default {
   name: 'App',
   data: function () {
     return {
-      demos: DEMO_NUMBER,
+      demos: DEMO_MAP,
       identity: {
         id: 123,
         role: 123
@@ -37,13 +45,6 @@ export default {
     }
   },
   methods: {
-    // getDemoArray () {
-    //   let arr = []
-    //   for (let i = 0; i < DEMO_NUMBER; i++) {
-    //     arr.push(i + 1)
-    //   }
-    //   return arr
-    // },
     needZero (number) {
       return number < 10 ? '0' : null
     }
@@ -81,8 +82,9 @@ html, body {
   }
   .nav {
     border-right: 1px solid gray;
-    padding: 50px 0 0 40px;
-    width: 120px;
+    padding: 30px 30px 0 40px;
+    min-width: 200px;
+    overflow: auto;
     flex-shrink: 0;
   }
   .nav li {

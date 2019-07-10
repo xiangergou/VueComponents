@@ -2,7 +2,7 @@
  * @Author: liuxia
  * @Date: 2019-07-09 17:48:13
  * @Last Modified by: liuxia
- * @Last Modified time: 2019-07-09 17:48:13
+ * @Last Modified time: 2019-07-10 16:22:23
  */
 
 <template>
@@ -26,7 +26,7 @@
 <script>
 import dragDialog from '@/directives/dragDialog'
 export default {
-  name: 'demo2',
+  name: 'demo2-element-dialog拖拽指令',
   directives: {
     dragDialog
   },

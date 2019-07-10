@@ -2,7 +2,7 @@
  * @Author: liuxia
  * @Date: 2019-07-05 20:31:14
  * @Last Modified by: liuxia
- * @Last Modified time: 2019-07-08 14:35:20
+ * @Last Modified time: 2019-07-10 15:50:36
  */
 
 <template>
@@ -80,7 +80,7 @@
 
 <script>
 export default {
-  name: 'demo1',
+  name: 'demo1-element季度组件',
   props: {
     width: {
       type: String,
